@@ -29,12 +29,9 @@ useremote:
 detectmisconfig:
 	cd scripts; bash detect-pkg-misconfig.sh
 
-utest:
-	go test ./...
-
-# Local build: make sure the test code compiles.
+# Local build: make sure the test code compiles. 
 lbuild:
-	go build ./...
+	go test -c github.com/ConsenSys/fc-retrieval-itest/internal/integration
 
 
 itest:

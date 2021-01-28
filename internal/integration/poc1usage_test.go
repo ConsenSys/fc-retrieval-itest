@@ -17,15 +17,8 @@ package integration
 
  import (
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
-	
-
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
-
-	"github.com/ConsenSys/fc-retrieval-client/pkg/fcrclient"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
 )
 
 

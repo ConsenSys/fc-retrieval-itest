@@ -14,12 +14,12 @@ dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128010737-995088f9e2e5 h1:8oI70hOCfbGQUfw/nkTcj1zeGG1JIVmEtRLaFJo/QLo=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128010737-995088f9e2e5/go.mod h1:na/jWqaBwav2IDtl3MyKnrEv/To45CL+dTpXVca7uuY=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128021619-2fafe9572828 h1:/T03cNQO4M5E6J2Km8Lrx1z2urKBVrAx5XFF+aRhjmU=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128021619-2fafe9572828/go.mod h1:na/jWqaBwav2IDtl3MyKnrEv/To45CL+dTpXVca7uuY=
+github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128201500-edf0c3852e4d h1:eGKbNPEpKkZw0A6fZSWNwKWQr1huLeMVZrxdB5EF8SY=
+github.com/ConsenSys/fc-retrieval-client v0.0.0-20210128201500-edf0c3852e4d/go.mod h1:na/jWqaBwav2IDtl3MyKnrEv/To45CL+dTpXVca7uuY=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210127020519-55a6c6371555 h1:FSs3yURyta+9GjWvKk+o1BIo8HmLR2JFE2RglTgSabM=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210127020519-55a6c6371555/go.mod h1:jStgGs5uwGIenRmFMK9sGiM+VyBAeRm9e4RC3zK830A=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210128201529-7a0e6e73c8d1 h1:p1T8eqxuaiFzPfFfo6cI0cdh2q+kv5yobYPUrR5cbBI=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210128201529-7a0e6e73c8d1/go.mod h1:jStgGs5uwGIenRmFMK9sGiM+VyBAeRm9e4RC3zK830A=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
