@@ -38,7 +38,7 @@ lbuild:
 
 
 itest:
-	docker-compose up -d --exit-code-from itest
+	docker-compose up -d
 	go test ./...
 	docker-compose down
 	
