@@ -16,10 +16,10 @@ services:
     env_file:
       - gateway.env
     ports:
-      - "20000:${BIND_REST_API}"
-      - "${BIND_PROVIDER_API}"
-      - "${BIND_GATEWAY_API}"
-      - "20001:${BIND_ADMIN_API}"
+      - "20000:80"
+      - "8001"
+      - "8002"
+      - "20001:8003"
 
   provider:
     image: consensys/fc-retrieval-provider:dev
