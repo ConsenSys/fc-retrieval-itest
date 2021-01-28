@@ -13,7 +13,7 @@ release: clean utest build
 
 # builds a docker image that builds the app and packages it into a minimal docker image
 build:
-	docker build -t ${REGISTRY}fc-retrieval-itest:${VERSION} .
+#	docker build -t ${REGISTRY}fc-retrieval-itest:${VERSION} .
 
 
 # push the image to an registry
@@ -38,8 +38,14 @@ lbuild:
 
 
 itest:
+	docker-compose up -d --exit-code-from itest
+	go test ./...
 	docker-compose down
-	docker-compose up --abort-on-container-exit --exit-code-from itest
+	
+
+#	docker-compose down
+#	docker-compose up --abort-on-container-exit --exit-code-from itest
+
 
 
 # remove previous images and containers

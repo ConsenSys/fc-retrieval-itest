@@ -1,12 +1,12 @@
 version: "3.8"
 services:
-  itest:
-    image: fc-retrieval-itest:dev
-    container_name: itest
-    networks:
-      - shared
-    depends_on: 
-      - gateway
+  #itest:
+  #  image: fc-retrieval-itest:dev
+  #  container_name: itest
+  #  networks:
+  #    - shared
+  #  depends_on: 
+  #    - gateway
                 
   gateway:
     image: fc-retrieval-gateway:dev
@@ -14,12 +14,12 @@ services:
     networks:
       - shared
     env_file:
-      - .env
+      - gateway.env
     ports:
-      - "80"
-      - "443"
-      - "8090"
-      - "8091"
+      - "20000:${BIND_REST_API}"
+      - "${BIND_PROVIDER_API}"
+      - "${BIND_GATEWAY_API}"
+      - "20001:${BIND_ADMIN_API}"
 
   provider:
     image: consensys/fc-retrieval-provider:dev
@@ -27,11 +27,11 @@ services:
     networks:
       - shared
     ports:
-      - "80"
+      - "20002:80"
     env_file:
-      - .env
+      - provider.env
 
-  fc-retrieval-register:
+  register:
     image: consensys/fc-retrieval-register:dev
     ports:
       - "80"
@@ -40,6 +40,8 @@ services:
     networks:
       - shared
     restart: unless-stopped
+    env_file:
+      - register.env
 
   redis:
     container_name: fc-retrieval-redis
