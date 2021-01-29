@@ -34,15 +34,20 @@ lbuild:
 	go test -c github.com/ConsenSys/fc-retrieval-itest/internal/integration
 
 
+# Run the gateway(s), provider(s), and register services in Docker. Run the 
+# tests locally. Dump the go.mod file so that the precise versions of 
+# Client and Gateway Admin library are recorded. 
 itest:
 	docker-compose up -d
-	echo HERE1
+	echo *********************************************
 	cat go.mod
-	echo HERE2
+	echo *********************************************
 	go test ./...
 	docker-compose down
 	
-
+# This is the previous methodology, where the integration tests were in 
+# a Docker container.
+#
 #	docker-compose down
 #	docker-compose up --abort-on-container-exit --exit-code-from itest
 
