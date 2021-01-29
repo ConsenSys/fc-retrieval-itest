@@ -38,10 +38,10 @@ lbuild:
 # tests locally. Dump the go.mod file so that the precise versions of 
 # Client and Gateway Admin library are recorded. 
 itest:
-	docker-compose up -d
+	docker-compose up -detach
 	echo *********************************************
 	cat go.mod
-	sleep 2
+	sleep 10
 	echo *********************************************
 	go test ./...
 	docker-compose down
