@@ -36,6 +36,9 @@ lbuild:
 
 itest:
 	docker-compose up -d
+	echo HERE1
+	cat go.mod
+	echo HERE2
 	go test ./...
 	docker-compose down
 	
