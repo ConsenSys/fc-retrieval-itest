@@ -41,6 +41,7 @@ itest:
 	docker-compose up -d
 	echo *********************************************
 	cat go.mod
+	sleep 2
 	echo *********************************************
 	go test ./...
 	docker-compose down
