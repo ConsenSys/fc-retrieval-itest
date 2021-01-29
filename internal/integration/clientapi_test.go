@@ -15,22 +15,29 @@ package integration
  * SPDX-License-Identifier: Apache-2.0
  */
 
- import (
-	"testing"
+import (
 	"strconv"
+	"testing"
 
 	"github.com/ConsenSys/fc-retrieval-client/pkg/fcrclient"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
+	"github.com/stretchr/testify/assert"
 )
+
+// Test the Client API.
+
 
 
 func TestGetClientVersion(t *testing.T) {
-	// Verify that the client version is a number.
 	versionInfo := fcrclient.GetVersion()
-	_, err := strconv.Atoi(versionInfo.Version)
+	// Verify that the client version is an integer number.
+	ver, err := strconv.Atoi(versionInfo.Version)
 	if err != nil {
 		panic(err)
 	}
+
+	// The version must be 1 or more.
+	assert.Greater(t, 0, ver)
 }
 
 func TestInitClientNoRetrievalKey(t *testing.T) {
