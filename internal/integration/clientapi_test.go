@@ -37,7 +37,7 @@ func TestGetClientVersion(t *testing.T) {
 	}
 
 	// The version must be 1 or more.
-	assert.Greater(t, 0, ver)
+	assert.LessOrEqual(t, 1, ver)
 }
 
 func TestInitClientNoRetrievalKey(t *testing.T) {
