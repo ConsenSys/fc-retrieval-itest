@@ -46,18 +46,19 @@ commands:
           working_directory: << parameters.workdir >>
 
 jobs:
-  integrationtest:
+  # Do a local build first, just to make sure the integration test code builds.
+  localbuild:
     docker:
-      # specify the version
       - image: circleci/golang:1.15
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-    #### TEMPLATE_NOTE: go expects specific checkout path representing url
-    #### expecting it in the form of
-    ####   /go/src/github.com/circleci/go-tool
-    ####   /go/src/bitbucket.org/circleci/go-tool
+    working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
+    steps:
+      - checkout
+      - run: make lbuild
+
+  # Integration tests using source code
+  itestsource:
+    docker:
+      - image: circleci/golang:1.15
     working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
     steps:
       - getrepobranch:
@@ -133,18 +134,31 @@ jobs:
           name: Display Gateway Container Log
           command: docker container logs gateway
 
-  # Do a local build first, just to make sure the integration test code builds.
-  localbuild:
+  # Integration tests using Docker. Build and run integration tests based on go.mod
+  itestdocker:
     docker:
       - image: circleci/golang:1.15
-    environment:
-      REPOBRANCH: << pipeline.parameters.repox-branch >>
     working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
     steps:
-      - getrepobranch:
-          repo: "https://github.com/ConsenSys/fc-retrieval-itest"
-          workdir: "/go/src/github.com/ConsenSys/fc-retrieval-itest"
-      - run: make lbuild
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - run: 
+          name: Make Integration Tests
+          command: make clean build
+      - run:
+          name: Log in to Docker registry
+          command: echo $GITHUB_ACCESS_TOKEN | docker login https://docker.pkg.github.com -u $GITHUB_USER --password-stdin
+      - run: 
+          name: Run Itegration Tests
+          command: make itest
+          no_output_timeout: 30s
+      - run:
+          name: Display Gateway Container Log
+          command: docker container logs gateway
+
+
 
   # check parameter passing
   checkparam:
@@ -166,6 +180,9 @@ workflows:
   test_and_release:
     jobs:
       - localbuild
-      - integrationtest:
+      - itestsource:
+          requires:
+            - localbuild
+      - itestdocker:
           requires:
             - localbuild

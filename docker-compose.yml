@@ -8,50 +8,58 @@ services:
   #  depends_on: 
   #    - gateway
                 
-  gateway:
-    image: fc-retrieval-gateway:dev
+  
+
+  provider:
+    image: ${PROVIDER_IMAGE:-consensys/fc-retrieval-provider:dev}
+    container_name: provider
+    networks:
+      - shared
+    ports:
+      - "8081:8081"
+    env_file:
+      - provider.env
+    depends_on:
+      - register
+      - gateway
+
+gateway:
+    image: ${GATEWAY_IMAGE:-consensys/fc-retrieval-gateway:dev}
     container_name: gateway
     networks:
       - shared
     env_file:
       - gateway.env
     ports:
-      - "8000:80"
-      - "8001"
-      - "8002"
-      - "8003:8003"
-
-  provider:
-    image: consensys/fc-retrieval-provider:dev
-    container_name: provider
-    networks:
-      - shared
-    ports:
-      - "20002:80"
-    env_file:
-      - provider.env
+      - "80:80"
+      - "8090:8090"
+      - "8091:8091"
+      - "8092:8092"
+    depends_on:
+      - register
 
   register:
-    image: consensys/fc-retrieval-register:dev
+    image: ${REGISTER_IMAGE:-consensys/fc-retrieval-register:dev}
+    container_name: register
     ports:
-      - "80"
-    volumes:
-      - ./:/app
+      - "8080:8080"
     networks:
       - shared
     restart: unless-stopped
     env_file:
       - register.env
+    depends_on:
+      - redis
 
   redis:
-    container_name: fc-retrieval-redis
     image: "redis:alpine"
-    ports:
-      - "6379"
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+    container_name: redis
     networks:
       - shared
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
     restart: always
 
 
@@ -67,3 +75,5 @@ services:
      
 networks:
   shared:
+    name: shared
+    external: true
