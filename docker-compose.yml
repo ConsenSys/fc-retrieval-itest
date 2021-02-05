@@ -1,15 +1,5 @@
 version: "3.8"
 services:
-  #itest:
-  #  image: fc-retrieval-itest:dev
-  #  container_name: itest
-  #  networks:
-  #    - shared
-  #  depends_on: 
-  #    - gateway
-                
-  
-
   provider:
     image: ${PROVIDER_IMAGE:-consensys/fc-retrieval-provider:dev}
     container_name: provider
@@ -23,7 +13,7 @@ services:
       - register
       - gateway
 
-gateway:
+  gateway:
     image: ${GATEWAY_IMAGE:-consensys/fc-retrieval-gateway:dev}
     container_name: gateway
     networks:
@@ -61,17 +51,6 @@ gateway:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     restart: always
-
-
-
-#  dbg:
-#   image: busybox
-#   #image: radial/busyboxplus:curl
-#   container_name: dbg
-#   stdin_open: true
-#   tty: true
-#   networks:
-#     - shared
      
 networks:
   shared:
