@@ -34,7 +34,12 @@ func InitClient() *fcrclient.FilecoinRetrievalClient {
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
 	conf := confBuilder.Build()
 
-	return fcrclient.InitFilecoinRetrievalClient(*conf)
+	c, err := fcrclient.NewFilecoinRetrievalClient(*conf)
+	if err != nil {
+		panic(err)
+	}
+
+	return c
 }
 
 // CloseClient shuts down a Filecoin Retrieval Client

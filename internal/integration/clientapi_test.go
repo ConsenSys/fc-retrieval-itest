@@ -51,7 +51,12 @@ func TestInitClientNoRetrievalKey(t *testing.T) {
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
 	conf := confBuilder.Build()
 
-	_ = fcrclient.InitFilecoinRetrievalClient(*conf)
+	client, err := fcrclient.NewFilecoinRetrievalClient(*conf)
+	if err != nil {
+		panic(err)
+	}
+
+	client.Shutdown()
 }
 
 
