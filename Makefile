@@ -48,6 +48,7 @@ itest:
 	docker container logs register
 	docker container logs gateway
 	docker container logs provider
+	docker network inspect -v shared
 	echo *********************************************
 	go test ./...
 	docker-compose down
