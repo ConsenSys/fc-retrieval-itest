@@ -44,13 +44,28 @@ itest:
 	echo *********************************************
 	cat go.mod
 	sleep 10
+	echo REDIS STARTUP *********************************************
 	docker container logs redis
+	echo REGISTER STARTUP *********************************************
 	docker container logs register
+	echo GATEWAY STARTUP *********************************************
 	docker container logs gateway
+	echo PROVIDER STARTUP *********************************************
 	docker container logs provider
-	docker network inspect -v shared
+	echo NETWORK CONFIG *********************************************
+	docker network inspect shared
 	echo *********************************************
 	go test ./...
+	echo *********************************************
+	echo REDIS LOGS *********************************************
+	docker container logs redis
+	echo REGISTER LOGS *********************************************
+	docker container logs register
+	echo GATEWAY LOGS *********************************************
+	docker container logs gateway
+	echo PROVIDER LOGS *********************************************
+	docker container logs provider
+	echo *********************************************
 	docker-compose down
 	
 # This is the previous methodology, where the integration tests were in 
