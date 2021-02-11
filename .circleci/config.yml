@@ -113,18 +113,18 @@ jobs:
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-client/
       - run: 
           name: Make Integration Tests
-          command: make clean build push
+          command: make clean build tag
       - run:
           name: Make Gateway
-          command: make clean build push
+          command: make clean build tag
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-gateway/
       - run:
           name: Make Provider
-          command: make clean build push
+          command: make clean build tag
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-provider/
       - run:
           name: Make Register
-          command: make clean build push
+          command: make clean build tag
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-register/
       - run: 
           name: Run Itegration Tests
