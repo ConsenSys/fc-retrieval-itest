@@ -11,7 +11,7 @@ COMPOSE_FILE?=docker-compose.yml
 
 # This target (the first target in the build file) is the one that is executed if no 
 # command line args are specified.
-release: clean utest build push
+default: clean utest build tag
 
 # builds a docker image that builds the app and packages it into a minimal docker image
 build:
@@ -21,6 +21,9 @@ build:
 # push the image to an registry
 push:
 	cd scripts; bash push.sh ${VERSION} ${IMAGE}:${VERSION}
+
+tag:
+	cd scripts; bash tag.sh ${VERSION} ${IMAGE}:${VERSION}
 
 uselocal:
 	cd scripts; bash use-local-repos.sh
