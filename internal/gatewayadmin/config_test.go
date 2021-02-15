@@ -16,10 +16,9 @@ package integration
  */
 
 import (
-	"strconv"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+//	"github.com/stretchr/testify/assert"
 
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
 	log "github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
@@ -45,28 +44,23 @@ func TestInitGateway(t *testing.T) {
 	if err != nil {
 		log.Panic(err.Error())
 	}
-	gatewayRetrievalPrivateKey, err := fcrcrypto.GenerateRetrievalV1KeyPair()
-	if err != nil {
-		log.Panic(err.Error())
-	}
 
 	confBuilder := fcrgatewayadmin.CreateSettings()
 	confBuilder.SetEstablishmentTTL(101)
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
 	conf := confBuilder.Build()
 
-	gatewayAdmin := fcrgatewayadmin.InitFilecoinRetrievalGatewayAdminClient(*conf)
-	err = gatewayAdmin.SendKeyToGateway("gateway", gatewayRetrievalPrivateKey);
-	gatewayAdmin.Shutdown()}
+	gatewayAdmin := fcrgatewayadmin.NewFilecoinRetrievalGatewayAdminClient(*conf)
 
-func TestOneConnectedGateway(t *testing.T) {
-	// The current configuration means that there should only be one connected gateway
-	client := InitClient()
-	gateways := client.ConnectedGateways()
-	assert.Equal(t, 1, len(gateways), "Unexpected number of gateways returned")
-	if len(gateways) > 0 {
-		assert.Equal(t, "http://gateway:9011/", gateways[0])
+	gatewayRetrievalPrivateKey, err := fcrgatewayadmin.CreateKey()
+	if err != nil {
+		panic(err)
 	}
-	CloseClient(client)
 
+	err = gatewayAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey);
+	if err != nil {
+		panic(err)
+	}
+	gatewayAdmin.Shutdown()
 }
+

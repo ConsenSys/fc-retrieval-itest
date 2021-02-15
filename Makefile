@@ -76,6 +76,8 @@ itestdocker:
 	docker container logs gateway
 	echo PROVIDER LOGS *********************************************
 	docker container logs provider
+	echo ITEST LOGS *********************************************
+	docker container logs itest
 	echo *********************************************
 	docker-compose down
 
