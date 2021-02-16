@@ -5,7 +5,7 @@ go 1.15
 require (
 	github.com/ConsenSys/fc-retrieval-client v0.0.0-20210212040242-d62326c04455
 	github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210216013954-e5d518268704
-	github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210216014847-81deb3139fac
+	github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210216025636-3d955bcae7aa
 	github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210210181351-ff31e4cad9a9
 	github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a
 	github.com/spf13/viper v1.7.1

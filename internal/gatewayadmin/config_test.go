@@ -57,10 +57,16 @@ func TestInitGateway(t *testing.T) {
 		panic(err)
 	}
 
+	// TODO add a get key to check it doesn't exist
+
 	err = gatewayAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey);
 	if err != nil {
 		panic(err)
 	}
+
+	// TODO add a get key to see that the gateway has the key
+
+	log.Info("Working!")
 	gatewayAdmin.Shutdown()
 }
 
