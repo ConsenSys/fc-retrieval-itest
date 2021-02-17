@@ -44,7 +44,8 @@ func TestProviderPublishMessage(t *testing.T) {
 			continue
 		}
 		message := provider.GenerateDummyMessage()
-		p.GatewayCommPool.RegisterNodeAddress(gatewayID, gateway.NetworkProviderInfo)
+//		p.GatewayCommPool.AddRegisteredNode(gatewayID, node)
+//		p.GatewayCommPool.RegisterNodeAddress(gateway.NodeID, gw.NetworkProviderInfo)
 		prov.SendMessageToGateway(message, gatewayID, p.GatewayCommPool)
 		logging.Info("Message sent to gateway %s", gateway.NetworkProviderInfo)
 	}
