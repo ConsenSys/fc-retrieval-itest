@@ -20,10 +20,10 @@ github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210122073456-89eb6459e1f9/go.
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210209012340-aea5a9e0c50b/go.mod h1:nbNZeRyMUAvL6y5mTe2LNEsXcmUj/HwtKXCpiium16I=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210216064440-16781953aa94 h1:qx64THCFYUJi5Ba1/L+uCkG7x1ciBtz15YtjAHxRyvs=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210216064440-16781953aa94/go.mod h1:Rr/VSrMXCZDiR4OzKokE1q57Q79fEng37ZguEuFWLRU=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210217015615-53f1282a2ff7 h1:tSLWBB39XtELCMAS+zPVC0ZtPtYMPkjahfVF9Qq5ubg=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210217015615-53f1282a2ff7/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217015749-0fb473eb6af3 h1:4ISvMA3Fx5wL+BiIX5bFc2UhaTgr3iOh0T5R+virUc8=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217015749-0fb473eb6af3/go.mod h1:QI/fspyDMEP+yb2zSdWvtGkYzk7SjF2fX0/UkNW9BuU=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210217043212-e959886bb388 h1:TSGwVOH3v5mp9rqAymHOhvCXnV1SzizmiOqRo2wvFT0=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210217043212-e959886bb388/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
+github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217050658-9db5ee3d7c1b h1:K+VbDp7mpSIuXjlFKv+bwLTFD/IMfr0wJsT6tvxvmV0=
+github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217050658-9db5ee3d7c1b/go.mod h1:i4KpBmJbvJcAJW/xXSqfRyvwiYtXjpxlfIMRsfeuw4M=
 github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210210181351-ff31e4cad9a9 h1:a556uIhc8mMMQHq4Dm1tgLEy6umSr4OsedMXYlLnERg=
 github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210210181351-ff31e4cad9a9/go.mod h1:T66RBXfhI+n6CAl5XAQ04cb3MAYQfsbgd6I9Mf+Lnm8=
 github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a h1:dAmXjhLnJK7ASekDU9L7+Be4ozD04GluWkHBMthxv6c=
