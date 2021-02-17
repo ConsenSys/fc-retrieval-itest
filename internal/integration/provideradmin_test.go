@@ -20,7 +20,7 @@ import (
 
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/nodeid"
-	"github.com/ConsenSys/fc-retrieval-register/pkg/register"
+	"github.com/ConsenSys/fc-retrieval-gateway/pkg/register"
 
 	"github.com/ConsenSys/fc-retrieval-itest/internal/provider"
 	prov "github.com/ConsenSys/fc-retrieval-provider/pkg/provider"
@@ -31,23 +31,22 @@ import (
 func TestProviderPublishMessage(t *testing.T) {
 	p := InitProvider()
 
+
 	gateways, err := register.GetRegisteredGateways(p.Conf.GetString("REGISTER_API_URL"))
 	if err != nil {
 		panic(err)
 	}
-
-	for _, gateway := range gateways {
-
-		gatewayID, err := nodeid.NewNodeIDFromString(gateway.NodeID)
+	for _, gw := range gateways {
+		message := provider.GenerateDummyMessage()
+		logging.Info("Message: %v", message)
+		gatewayID, err := nodeid.NewNodeIDFromString(gw.NodeID)
 		if err != nil {
-			logging.Error("Error with nodeID %v: %v", gateway.NodeID, err)
+			logging.Error("Error with nodeID %v: %v", gw.NodeID, err)
 			continue
 		}
-		message := provider.GenerateDummyMessage()
-//		p.GatewayCommPool.AddRegisteredNode(gatewayID, node)
-//		p.GatewayCommPool.RegisterNodeAddress(gateway.NodeID, gw.NetworkProviderInfo)
+		p.GatewayCommPool.RegisteredNodeMap[gw.NodeID] = &gw
 		prov.SendMessageToGateway(message, gatewayID, p.GatewayCommPool)
-		logging.Info("Message sent to gateway %s", gateway.NetworkProviderInfo)
+		logging.Info("Message sent to gateway %s", gw.NetworkProviderInfo)
 	}
 	CloseProvider(p)
 
