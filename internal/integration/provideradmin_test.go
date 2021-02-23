@@ -25,10 +25,10 @@ import (
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrmessages"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/nodeid"
-	"github.com/ConsenSys/fc-retrieval-provider-admin/pkg/fcrprovideradmin"
+	"github.com/ConsenSys/fc-retrieval-gateway/pkg/register"
 	"github.com/ConsenSys/fc-retrieval-itest/config"
 	"github.com/ConsenSys/fc-retrieval-itest/pkg/provider"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/register"
+	"github.com/ConsenSys/fc-retrieval-provider-admin/pkg/fcrprovideradmin"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -61,12 +61,12 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
 	confBuilder.SetRegisterURL(providerConfig.GetString("REGISTER_API_URL"))
 	confBuilder.SetProviderRegister(&register.ProviderRegister{
-		NodeID: 					providerConfig.GetString("PROVIDER_ID"),
-		Address: 					providerConfig.GetString("PROVIDER_ADDRESS"),
+		NodeID:           providerConfig.GetString("PROVIDER_ID"),
+		Address:          providerConfig.GetString("PROVIDER_ADDRESS"),
 		NetworkAdminInfo: providerConfig.GetString("ADMIN_NETWORK_INFO"),
-		RegionCode:     	providerConfig.GetString("PROVIDER_REGION_CODE"),
-		RootSigningKey: 	providerConfig.GetString("PROVIDER_ROOT_SIGNING_KEY"),
-		SigningKey:      	providerConfig.GetString("PROVIDER_SIGNING_KEY"),
+		RegionCode:       providerConfig.GetString("PROVIDER_REGION_CODE"),
+		RootSigningKey:   providerConfig.GetString("PROVIDER_ROOT_SIGNING_KEY"),
+		SigningKey:       providerConfig.GetString("PROVIDER_SIGNING_KEY"),
 	})
 	conf := confBuilder.Build()
 
