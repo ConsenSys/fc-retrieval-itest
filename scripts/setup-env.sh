@@ -42,7 +42,7 @@ check_repo() {
     echo ${3}_IMAGE=consensys/fc-retrieval-${1}:develop-${OTHER_REPO_BRANCH} >> .env
 }
 
-rm .env
+rm -f .env
 
 check_repo gateway ../fc-retrieval-gateway GATEWAY
 check_repo register ../fc-retrieval-register REGISTER

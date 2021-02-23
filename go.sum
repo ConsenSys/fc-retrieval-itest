@@ -14,52 +14,20 @@ dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210211040130-396ff2926505/go.mod h1:M7Va9hB0HG4NaIR3ZpRZBVMERcQF3V5ykdgVICQ7IMk=
-<<<<<<< HEAD
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223064957-96910665fb3c h1:+8D/CrzqpWwiukRw27uiY5+xxOf9TeD2mI43u+C5rfQ=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223064957-96910665fb3c/go.mod h1:BUYkeXu746SOgfSoB2DndA4KGkTklnNWWZF9Ae+E+ns=
-=======
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223034843-e05135d40e4b h1:AmYnhJTJ2IUc9iXm4eyjpxY8BqwVJir7i6MPTXcs6is=
-github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223034843-e05135d40e4b/go.mod h1:m2OpQZDy0C3WyCYIsMf3Hgl2Md/wW7cSiUZAm4aOfbY=
->>>>>>> origin/139-add-provider-apis
+github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223074013-a5a360af8bc7 h1:ke7eqwr876MPiU0ZAPJIg5xOiGaB4SL/XaTyl3KZISI=
+github.com/ConsenSys/fc-retrieval-client v0.0.0-20210223074013-a5a360af8bc7/go.mod h1:3Hj9gNWKxFnqAoalcJKkYUez2D7WHEOYpkc96t6qDgc=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210122073456-89eb6459e1f9/go.mod h1:jStgGs5uwGIenRmFMK9sGiM+VyBAeRm9e4RC3zK830A=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210210012054-1bfdbf5cc947/go.mod h1:nbNZeRyMUAvL6y5mTe2LNEsXcmUj/HwtKXCpiium16I=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210210140720-be1622bb6c2b/go.mod h1:Rr/VSrMXCZDiR4OzKokE1q57Q79fEng37ZguEuFWLRU=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210217043212-e959886bb388/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210222110456-d962da39ea7f h1:O3Qa3gotl+Ttlli8UCCg2Op8e8wWVsVM2+ZJ/+WgHjc=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210222110456-d962da39ea7f/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-<<<<<<< HEAD
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223033546-ac8d6844f83b h1:QVTIIyxnT4rRzFPRdN5Y8wnogHPGy1hMRbTbHCF/zYs=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223033546-ac8d6844f83b/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210211040148-f5fc7cc0c831 h1:IYM25zkjlcjw/MoYXcPAf2xnrc8hvUZ/mgzLvkZIWDI=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210211040148-f5fc7cc0c831/go.mod h1:x8vHv0nzGW2GMka+NqFLSZfOMIXtwxthmKkLwGLn72Q=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217065551-94e62f707ffb h1:JWVlmjKFIHjUUB+V16Y59klFa93s/Myz4EhEEnHcWds=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210217065551-94e62f707ffb/go.mod h1:i4KpBmJbvJcAJW/xXSqfRyvwiYtXjpxlfIMRsfeuw4M=
-github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223020803-f53278adb63a h1:uaI7cDJqOP829x60V5YP7dDCSyuIoAAjoIdR4Hp9fJU=
-github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223020803-f53278adb63a/go.mod h1:bXgquu2CxG6u8gQyFxRvOfsnHvIGNeddkyyoOIIjQOc=
-github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210222234334-5235d26e6096 h1:mo1GIIyUJ/EJfFk5syimh1RdYjTZmIJdtwPLNho3Nf0=
-github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210222234334-5235d26e6096/go.mod h1:iG3kK0OnqBZYoKjvdCC3V75EYuDIHHIp2BEVh7n1zW8=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a/go.mod h1:Xs9qRhBLb+QPEWwMwYHBDcD1Ndun5kDYWfXNKzuIon4=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210217070341-af47745cf1a3/go.mod h1:csHmRc04HTAzZ/QSiOJFu1yAcnTRbcH6Knf8Z5dNpFY=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210222234506-ecdaf5da0f53 h1:ovLX+TGk5b4Kcp5EpqZUixhQ5iBKWVF9Jmx2KRjn+ks=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210222234506-ecdaf5da0f53/go.mod h1:csHmRc04HTAzZ/QSiOJFu1yAcnTRbcH6Knf8Z5dNpFY=
-=======
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210222234453-96133a191bdd h1:I7eMLDwK1Ugx9R2Syux7EUV0ZATBihHOK7hOkI2jRlc=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210222234453-96133a191bdd/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223013114-6890d14efffc h1:4Flg2lKoNDHhUjl4R7btrkJcYIW0i/9IbnHAY83J8dU=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223013114-6890d14efffc/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210211040148-f5fc7cc0c831 h1:IYM25zkjlcjw/MoYXcPAf2xnrc8hvUZ/mgzLvkZIWDI=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210211040148-f5fc7cc0c831/go.mod h1:x8vHv0nzGW2GMka+NqFLSZfOMIXtwxthmKkLwGLn72Q=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210223034909-ea66af29458c h1:rJqD4/fsaFqSKFkxOPrDkyiJy4H2vQ4zSTcM4IR9i/Q=
-github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210223034909-ea66af29458c/go.mod h1:4cH3ZG/xAI74QuYP5SKRWI19yPlG9SgqI/P5Y5Gn+5M=
-github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223042356-9eb9dd116de2 h1:UFqNiZ+4rQFHHOdQZFqyKArrlvg3Q/XPQKLOrqPq7Bk=
-github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223042356-9eb9dd116de2/go.mod h1:5Ox62e1mNuGp6ZOvNGbEN6SeybR0NbxvrHNJltDLsfA=
-github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210222234334-5235d26e6096 h1:mo1GIIyUJ/EJfFk5syimh1RdYjTZmIJdtwPLNho3Nf0=
-github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210222234334-5235d26e6096/go.mod h1:iG3kK0OnqBZYoKjvdCC3V75EYuDIHHIp2BEVh7n1zW8=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223073855-4d701b80074e h1:eMwPBAdIeVyyeTSW6QdELuCXUVrHmZJDFxbo81v7tgA=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223073855-4d701b80074e/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
+github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210223053102-ef471552e4b5 h1:qyadvw22T3d+jnncd2rJ4FVWSOaq9VHRZjpEQifS7I8=
+github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210223053102-ef471552e4b5/go.mod h1:H2QaprVHLrKbr6Gb3RFC1m9eew3LXmHJZycu/d5ECCU=
+github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223074215-96d52ec0c009 h1:mtrdzTaNMM9dVKX6Jw+E/frnLBV6Oew5Klm6ekVxXdQ=
+github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210223074215-96d52ec0c009/go.mod h1:dmIS1dkT1eWAJMRG/RKwRbAYsHkgOGDenGUcSFVqbd8=
+github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210223074927-831460bd1daf h1:+xXDtifEAuMj2Z+tpA2TdX3UH0rHM/I4pR/YhSlfWwM=
+github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210223074927-831460bd1daf/go.mod h1:Fl/42/K4wKU/Wn8YplBRmVkiTp336d98ZI9vILDhR0Y=
+github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a h1:dAmXjhLnJK7ASekDU9L7+Be4ozD04GluWkHBMthxv6c=
 github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a/go.mod h1:Xs9qRhBLb+QPEWwMwYHBDcD1Ndun5kDYWfXNKzuIon4=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210222092716-5e5e813bd6e4 h1:BrNfmzwV5q/3KtSOZFSkkaZMjb21qy1PU/lPdcm8V90=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210222092716-5e5e813bd6e4/go.mod h1:csHmRc04HTAzZ/QSiOJFu1yAcnTRbcH6Knf8Z5dNpFY=
->>>>>>> origin/139-add-provider-apis
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/PuerkitoBio/purell v1.1.0/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
 github.com/PuerkitoBio/purell v1.1.1/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
@@ -405,12 +373,10 @@ github.com/spf13/viper v1.7.1 h1:pM5oEahlgWv/WnHXpgbKz7iLIxRf65tye2Ci+XFK5sk=
 github.com/spf13/viper v1.7.1/go.mod h1:8WkrPz2fc9jxqZNCJI/76HCieCp4Q8HaLFoCha5qpdg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
-github.com/stretchr/objx v0.2.0 h1:Hbg2NidpLE8veEBkEZTL3CvlkUIVzuU9jDplZO54c48=
 github.com/stretchr/objx v0.2.0/go.mod h1:qt09Ya8vawLte6SNmTgCsAVtYtaKzEcn8ATUoHMkEqE=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
-github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
