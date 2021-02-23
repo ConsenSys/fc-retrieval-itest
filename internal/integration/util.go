@@ -17,6 +17,7 @@ package integration
 
 import (
 	"github.com/ConsenSys/fc-retrieval-client/pkg/fcrclient"
+	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
 	"github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-provider/pkg/provider"
@@ -61,4 +62,24 @@ func InitProvider() *provider.Provider {
 // CloseProvider shuts down a Filecoin Retrieval Provider
 func CloseProvider(provider *provider.Provider) {
 	// provider.Shutdown()
+}
+
+// InitGatewayAdmin creates a gateway admin
+func InitGatewayAdmin() *fcrgatewayadmin.FilecoinRetrievalGatewayAdminClient {
+	blockchainPrivateKey, err := fcrcrypto.GenerateBlockchainKeyPair()
+	if err != nil {
+		panic(err)
+	}
+
+	confBuilder := fcrgatewayadmin.CreateSettings()
+	confBuilder.SetEstablishmentTTL(101)
+	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
+	conf := confBuilder.Build()
+
+	return fcrgatewayadmin.NewFilecoinRetrievalGatewayAdminClient(*conf)
+}
+
+// CloseGatewayAdmin closes down the gateway admin library
+func CloseGatewayAdmin(gwAdmin *fcrgatewayadmin.FilecoinRetrievalGatewayAdminClient) {
+	gwAdmin.Shutdown()
 }

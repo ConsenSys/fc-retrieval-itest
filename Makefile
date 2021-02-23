@@ -79,7 +79,14 @@ itestdocker:
 	echo ITEST LOGS *********************************************
 	docker container logs itest
 	echo *********************************************
+	# FAILED := $(docker container logs itest > grep FAIL)
+	#echo *********************************************
 	docker-compose down
+	#ifdef FAILED
+	#  echo FAILED: $(FAILED)
+  #  $(error Some tests failed)
+	#	exit 1
+  #endif
 
 # Version that can be run on a desktop computer.
 # Itest run from the host.
