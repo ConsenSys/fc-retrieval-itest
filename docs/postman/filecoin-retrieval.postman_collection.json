@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "ae1bf38a-5a58-447f-9246-3ec585b748f3",
+		"name": "Filecoin Retrieval",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FC Retrieval Register",
+			"item": [
+				{
+					"name": "Gateway",
+					"item": [
+						{
+							"name": "Add a gateway register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nodeId\": \"f01234\",\r\n    \"address\": \"f01234\",\r\n    \"networkInfoGateway\": \"127.0.0.1:80\",\r\n    \"networkInfoProvider\": \"127.0.0.1:80\",\r\n    \"networkInfoClient\": \"127.0.0.1:80\",\r\n    \"networkInfoAdmin\": \"127.0.0.1:80\",\r\n    \"regionCode\": \"FR\",\r\n    \"rootSigningKey\": \"0xABCDE123456789\",\r\n    \"sigingKey\": \"0x987654321EDCBA\"\r\n}"
+								},
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/gateway",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"gateway"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get gateway registers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/gateway",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"gateway"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get gateway register by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/gateway/f01234",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"gateway",
+										"f01234"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Add a provider register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nodeId\": \"f01234\",\r\n    \"address\": \"f01234\",\r\n    \"networkInfoGateway\": \"127.0.0.1:80\",\r\n    \"networkInfoClient\": \"127.0.0.1:80\",\r\n    \"networkInfoAdmin\": \"127.0.0.1:80\",\r\n    \"regionCode\": \"FR\",\r\n    \"rootSigningKey\": \"0xABCDE123456789\",\r\n    \"sigingKey\": \"0x987654321EDCBA\"\r\n}"
+								},
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/provider",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get provider registers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/provider",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get provider registers by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{registerApiUrl}}/registers/provider/f01234",
+									"host": [
+										"{{registerApiUrl}}"
+									],
+									"path": [
+										"registers",
+										"provider",
+										"f01234"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "FC Retrieval Gateway",
+			"item": [
+				{
+					"name": "Get ##TODO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"message_type\": \"123\",\r\n\t\"protocol_version\": \"123\",\r\n\t\"protocol_supported\": \"123\",\r\n\t\"nonce\": \"123\",\r\n\t\"provider_id\": \"123\",\r\n\t\"price_per_byte\": \"123\",\r\n\t\"expiry_date\": \"123\",\r\n\t\"qos\": \"123\",\r\n\t\"signature\": \"123\",\r\n\t\"piece_cids\": \"123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{gatewayProviderApiUrl}}/v1",
+							"host": [
+								"{{gatewayProviderApiUrl}}"
+							],
+							"path": [
+								"v1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -79,54 +79,7 @@ itestdocker:
 	echo ITEST LOGS *********************************************
 	docker container logs itest
 	echo *********************************************
-	# FAILED := $(docker container logs itest > grep FAIL)
-	#echo *********************************************
 	docker-compose down
-	#ifdef FAILED
-	#  echo FAILED: $(FAILED)
-  #  $(error Some tests failed)
-	#	exit 1
-  #endif
-
-# Version that can be run on a desktop computer.
-# Itest run from the host.
-# Run the gateway(s), provider(s), and register services in Docker. Run the 
-# tests locally. Dump the go.mod file so that the precise versions of 
-# Client and Gateway Admin library are recorded. 
-itest:
-	docker network create shared || true
-	docker-compose down
-	docker-compose -f $(COMPOSE_FILE) up -d gateway provider register redis 
-	echo *********************************************
-	cat go.mod
-	sleep 10
-	echo REDIS STARTUP *********************************************
-	docker container logs redis
-	echo REGISTER STARTUP *********************************************
-	docker container logs register
-	echo GATEWAY STARTUP *********************************************
-	docker container logs gateway
-	echo PROVIDER STARTUP *********************************************
-	docker container logs provider
-	echo NETWORK CONFIG *********************************************
-	docker network inspect shared
-	echo *********************************************
-	go test ./...
-	# If the tests crash, then the logs are not printed out.
-	echo *********************************************
-	echo REDIS LOGS *********************************************
-	docker container logs redis
-	echo REGISTER LOGS *********************************************
-	docker container logs register
-	echo GATEWAY LOGS *********************************************
-	docker container logs gateway
-	echo PROVIDER LOGS *********************************************
-	docker container logs provider
-	echo *********************************************
-	docker-compose down
-
-itest-dev: COMPOSE_FILE=docker-compose.dev.yml
-itest-dev: itest
 	
 # This is the previous methodology, where the integration tests were in 
 # a Docker container.

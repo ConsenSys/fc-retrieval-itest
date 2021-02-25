@@ -63,7 +63,7 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	confBuilder.SetProviderRegister(&register.ProviderRegister{
 		NodeID:           providerConfig.GetString("PROVIDER_ID"),
 		Address:          providerConfig.GetString("PROVIDER_ADDRESS"),
-		NetworkAdminInfo: providerConfig.GetString("ADMIN_NETWORK_INFO"),
+		NetworkInfoAdmin: providerConfig.GetString("ADMIN_NETWORK_INFO"),
 		RegionCode:       providerConfig.GetString("PROVIDER_REGION_CODE"),
 		RootSigningKey:   providerConfig.GetString("PROVIDER_ROOT_SIGNING_KEY"),
 		SigningKey:       providerConfig.GetString("PROVIDER_SIGNING_KEY"),

@@ -17,6 +17,7 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym
 github.com/ConsenSys/fc-retrieval-client v0.0.0-20210224044609-610fb3d242a4 h1:z1Dy3Ztmj3tL8TiTcYrHGELNx1F0PYlGbX+69gUIIWo=
 github.com/ConsenSys/fc-retrieval-client v0.0.0-20210224044609-610fb3d242a4/go.mod h1:3Hj9gNWKxFnqAoalcJKkYUez2D7WHEOYpkc96t6qDgc=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210122073456-89eb6459e1f9/go.mod h1:jStgGs5uwGIenRmFMK9sGiM+VyBAeRm9e4RC3zK830A=
+github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223013114-6890d14efffc/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223073855-4d701b80074e h1:eMwPBAdIeVyyeTSW6QdELuCXUVrHmZJDFxbo81v7tgA=
 github.com/ConsenSys/fc-retrieval-gateway v0.0.0-20210223073855-4d701b80074e/go.mod h1:wcMswm8esnwsoIpQHz9SZrlbU0+75WkS/SRx8d7waxk=
 github.com/ConsenSys/fc-retrieval-gateway-admin v0.0.0-20210223075928-772fd70c2067 h1:TYXtnG/Ti3rnoVw1XVMDhLwmItHND7RxkLe1yndiEIs=
@@ -27,6 +28,8 @@ github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210223074927-831460bd1
 github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210223074927-831460bd1daf/go.mod h1:Fl/42/K4wKU/Wn8YplBRmVkiTp336d98ZI9vILDhR0Y=
 github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a h1:dAmXjhLnJK7ASekDU9L7+Be4ozD04GluWkHBMthxv6c=
 github.com/ConsenSys/fc-retrieval-register v0.0.0-20210204110814-ed78769e295a/go.mod h1:Xs9qRhBLb+QPEWwMwYHBDcD1Ndun5kDYWfXNKzuIon4=
+github.com/ConsenSys/fc-retrieval-register v0.0.0-20210224132259-1d5238b0a7f4 h1:f17+KR9wjWUHZhIPoPt09SRsXkd+eRskhAWNpN+LHvA=
+github.com/ConsenSys/fc-retrieval-register v0.0.0-20210224132259-1d5238b0a7f4/go.mod h1:hk1wsV9EQrpyKzc9qYF2RoRZ3Zsu4Wu6wA9VE4LanJ8=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/PuerkitoBio/purell v1.1.0/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
 github.com/PuerkitoBio/purell v1.1.1/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=

@@ -59,4 +59,5 @@ check_repo gateway ../fc-retrieval-gateway
 check_repo gateway-admin ../fc-retrieval-gateway-admin
 check_repo provider-admin ../fc-retrieval-provider-admin
 check_repo provider ../fc-retrieval-provider
+check_repo register ../fc-retrieval-register
 go mod tidy
