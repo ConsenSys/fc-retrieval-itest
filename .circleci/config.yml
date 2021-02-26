@@ -68,6 +68,9 @@ jobs:
           repo: "https://github.com/ConsenSys/fc-retrieval-client"
           workdir: "/go/src/github.com/ConsenSys/fc-retrieval-client"
       - getrepobranch:
+          repo: "https://github.com/ConsenSys/fc-retrieval-common"
+          workdir: "/go/src/github.com/ConsenSys/fc-retrieval-common"
+      - getrepobranch:
           repo: "https://github.com/ConsenSys/fc-retrieval-gateway"
           workdir: "/go/src/github.com/ConsenSys/fc-retrieval-gateway"
       - getrepobranch:
@@ -98,6 +101,10 @@ jobs:
           name: Gateway Admin - Use remote config
           command: make useremote
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-gateway-admin/
+      - run:
+          name: Gateway - Use remote config
+          command: make useremote
+          working_directory: /go/src/github.com/ConsenSys/fc-retrieval-gateway/
       - run:
           name: ITest - Use remote config
           command: make useremote
