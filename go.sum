@@ -16,7 +16,6 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/ConsenSys/fc-retrieval-client v0.0.0-20210226020157-4e513895e566 h1:gc/YYcueYPLsDy/iJVlRHHqo1B4rxFv0AFE72HxBHHs=
 github.com/ConsenSys/fc-retrieval-client v0.0.0-20210226020157-4e513895e566/go.mod h1:2rb17hWVnhxwWUntRILq74W0OoSEKERqW54HM1sye68=
-github.com/ConsenSys/fc-retrieval-common v0.0.0-20210226014041-efc3c051757b/go.mod h1:h4WZ2CJ2k/x8XWMotfl2EIOgJX28mANy+Sd+jq6zn3k=
 github.com/ConsenSys/fc-retrieval-common v0.0.0-20210226015528-5bb0a14fb535 h1:dXDGlsH3bFZIejIkdW3CQuOee0dJfxvDt9q1NqwwxLM=
 github.com/ConsenSys/fc-retrieval-common v0.0.0-20210226015528-5bb0a14fb535/go.mod h1:h4WZ2CJ2k/x8XWMotfl2EIOgJX28mANy+Sd+jq6zn3k=
 github.com/ConsenSys/fc-retrieval-common v0.0.0-20210226022213-e26a912a72c5 h1:kDz+d4rdfWNt76EbACsswFor/Q+CtVkRtlGnvk1VfN0=
@@ -32,8 +31,8 @@ github.com/ConsenSys/fc-retrieval-provider v0.0.0-20210226022529-6aea50025f3d/go
 github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210226023710-8c545659b3d9 h1:wGyptGW4IE5lLzLaHcOvFudm8XssxW8s/Taz0nGVqd8=
 github.com/ConsenSys/fc-retrieval-provider-admin v0.0.0-20210226023710-8c545659b3d9/go.mod h1:gRlcoqrwGKWic33eBHlZlkNcZl7GQcrq9aeDp9fOM5g=
 github.com/ConsenSys/fc-retrieval-register v0.0.0-20210223131056-b0820710001a/go.mod h1:csHmRc04HTAzZ/QSiOJFu1yAcnTRbcH6Knf8Z5dNpFY=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210226020259-8e5d7fa2d193 h1:xpVgpIc7Sr05onPp3jqekyLwRTO2lFRY7GDkP6LUfoU=
-github.com/ConsenSys/fc-retrieval-register v0.0.0-20210226020259-8e5d7fa2d193/go.mod h1:GWihGYX29t/3VQti5BqKzfWxWjnVdBlVy+KoigBzrW0=
+github.com/ConsenSys/fc-retrieval-register v0.0.0-20210226024010-e30c19a7e3c3 h1:YYdcF2FpWp7qw3gITEClFCmXqwyZ8oXc21t1vpMEwOI=
+github.com/ConsenSys/fc-retrieval-register v0.0.0-20210226024010-e30c19a7e3c3/go.mod h1:WaczJecF9yJatStV3swGQxcKMO5MyZw1iy/7tya4ZFU=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/PuerkitoBio/purell v1.1.0/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
 github.com/PuerkitoBio/purell v1.1.1/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
