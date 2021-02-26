@@ -18,10 +18,10 @@ package integration
 import (
 	"testing"
 
-//	"github.com/stretchr/testify/assert"
+	//	"github.com/stretchr/testify/assert"
 
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
-	log "github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
+	log "github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
 )
 

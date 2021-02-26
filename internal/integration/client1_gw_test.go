@@ -19,15 +19,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/nodeid"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/nodeid"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
 )
 
 // Tests in this file check the ability to do node discovery.
-
-
 
 func TestOneGateway(t *testing.T) {
 	gwAdmin := InitGatewayAdmin()
@@ -37,7 +35,7 @@ func TestOneGateway(t *testing.T) {
 	}
 
 	// TODO fix this hard coded domain name
-	err = gwAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey);
+	err = gwAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey)
 	if err != nil {
 		panic(err)
 	}
@@ -46,7 +44,6 @@ func TestOneGateway(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-
 
 	client := InitClient()
 	newGatwaysToBeAdded := make([]*nodeid.NodeID, 0)
@@ -61,8 +58,8 @@ func TestOneGateway(t *testing.T) {
 
 	client.ConnectedGateways()
 	// TODO UNCOMMENT WHEN GATEWAY REGISTRATION IS WORKING
-//	gateways := client.ConnectedGateways()
-//	assert.Equal(t, 1, len(gateways), "Unexpected number of gateways returned")
+	//	gateways := client.ConnectedGateways()
+	//	assert.Equal(t, 1, len(gateways), "Unexpected number of gateways returned")
 	CloseClient(client)
 	CloseGatewayAdmin(gwAdmin)
 }

@@ -21,12 +21,12 @@ import (
 	"time"
 
 	"github.com/ConsenSys/fc-retrieval-client/pkg/fcrclient"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/nodeid"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/nodeid"
 	"github.com/stretchr/testify/assert"
 )
 
-// Tests in this file use the Client API, but don't need the rest of the system to be 
+// Tests in this file use the Client API, but don't need the rest of the system to be
 // configured. These tests need to be run prior to the other client tests.
 
 func TestGetClientVersion(t *testing.T) {

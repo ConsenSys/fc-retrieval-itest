@@ -17,9 +17,9 @@ package integration
 
 import (
 	"github.com/ConsenSys/fc-retrieval-client/pkg/fcrclient"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
+	"github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/fcrcrypto"
-	"github.com/ConsenSys/fc-retrieval-gateway/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-provider/pkg/provider"
 
 	"github.com/ConsenSys/fc-retrieval-itest/config"
