@@ -74,6 +74,7 @@ func InitGatewayAdmin() *fcrgatewayadmin.FilecoinRetrievalGatewayAdminClient {
 	confBuilder := fcrgatewayadmin.CreateSettings()
 	confBuilder.SetEstablishmentTTL(101)
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
+	confBuilder.SetRegisterURL("http://register:9020")
 	conf := confBuilder.Build()
 
 	return fcrgatewayadmin.NewFilecoinRetrievalGatewayAdminClient(*conf)

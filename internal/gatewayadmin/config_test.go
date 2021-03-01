@@ -45,12 +45,20 @@ func TestInitGateway(t *testing.T) {
 		log.Panic(err.Error())
 	}
 
+	
+
 	confBuilder := fcrgatewayadmin.CreateSettings()
 	confBuilder.SetEstablishmentTTL(101)
 	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
+	confBuilder.SetRegisterURL("http://register:9020")
 	conf := confBuilder.Build()
 
 	gatewayAdmin := fcrgatewayadmin.NewFilecoinRetrievalGatewayAdminClient(*conf)
+
+	gatewayRootPrivateKey, err := fcrgatewayadmin.CreateKey()
+	if err != nil {
+		panic(err)
+	}
 
 	gatewayRetrievalPrivateKey, err := fcrgatewayadmin.CreateKey()
 	if err != nil {
@@ -59,7 +67,7 @@ func TestInitGateway(t *testing.T) {
 
 	// TODO add a get key to check it doesn't exist
 
-	err = gatewayAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey);
+	err = gatewayAdmin.InitializeGatewayDefaultPorts("gateway", "AU", gatewayRootPrivateKey, gatewayRetrievalPrivateKey);
 	if err != nil {
 		panic(err)
 	}
