@@ -38,7 +38,9 @@ func TestGetClientVersion(t *testing.T) {
 	}
 
 	// The version must be 1 or more.
-	assert.LessOrEqual(t, 1, ver)
+	if !assert.LessOrEqual(t, 1, ver) {
+		return
+	}
 }
 
 // Test that the client can be initialized without causing an error.
@@ -67,10 +69,12 @@ func TestNoConfiguredGateways(t *testing.T) {
 	gateways := client.ConnectedGateways()
 	assert.Equal(t, 0, len(gateways), "Unexpected number of gateways returned")
 	if len(gateways) > 0 {
-		assert.Equal(t, "http://gateway:9011/", gateways[0])
+		if !assert.Equal(t, "http://gateway:9011/", gateways[0]) {
+			goto CLEAN_EXIT
+		}
 	}
+CLEAN_EXIT:
 	CloseClient(client)
-
 }
 
 func TestUnknownGatewayAdded(t *testing.T) {
@@ -90,7 +94,10 @@ func TestUnknownGatewayAdded(t *testing.T) {
 	time.Sleep(500 * time.Millisecond)
 
 	gateways := client.ConnectedGateways()
-	assert.Equal(t, 0, len(gateways), "Unexpected number of gateways returned")
+	if !assert.Equal(t, 0, len(gateways), "Unexpected number of gateways returned") {
+		CloseClient(client)
+		return
+	}
 	if len(gateways) > 0 {
 		assert.Equal(t, "http://gateway:9011/", gateways[0])
 	}

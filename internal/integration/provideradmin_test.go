@@ -25,7 +25,7 @@ import (
 	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/nodeid"
-	"github.com/ConsenSys/fc-retrieval-common/pkg/register"
+	"github.com/ConsenSys/fc-retrieval-register/pkg/register"
 	"github.com/ConsenSys/fc-retrieval-itest/config"
 	"github.com/ConsenSys/fc-retrieval-provider-admin/pkg/fcrprovideradmin"
 	"github.com/stretchr/testify/assert"
@@ -121,7 +121,9 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	if err != nil {
 		logging.ErrorAndPanic(err.Error())
 	}
-	assert.GreaterOrEqual(t, len(cidgroupInfo), 1, "Offers should be found")
+	if !assert.GreaterOrEqual(t, len(cidgroupInfo), 1, "Offers should be found") {
+		return
+	}
 
 	// Get offers by gatewayIDs real
 	gateways, err := register.GetRegisteredGateways(providerConfig.GetString("REGISTER_API_URL"))
@@ -138,7 +140,9 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	if err != nil {
 		logging.ErrorAndPanic(err.Error())
 	}
-	assert.GreaterOrEqual(t, len(cidgroupInfo), 1, "Offers should be found")
+	if !assert.GreaterOrEqual(t, len(cidgroupInfo), 1, "Offers should be found") {
+		return
+	}
 
 	// Get offers by gatewayIDs fake
 	fakeNodeID, _ := nodeid.NewNodeIDFromString("101112131415161718191A1B1C1D1E1F202122232425262728292A2B2C2DFA43")
@@ -148,10 +152,14 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	if err != nil {
 		logging.ErrorAndPanic(err.Error())
 	}
-	assert.Equal(t, 0, len(cidgroupInfo), "Offers should be empty")
+	if !assert.Equal(t, 0, len(cidgroupInfo), "Offers should be empty") {
+		return
+	}
 
 	// The version must be 1 or more.
-	assert.LessOrEqual(t, 1, 1)
+	if !assert.LessOrEqual(t, 1, 1) {
+		return
+	}
 
 	logging.Info("/*******************************************************/")
 	logging.Info("/*      End TestInitProviderAdminNoRetrievalKey	       */")
