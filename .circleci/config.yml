@@ -15,38 +15,48 @@ commands:
       workdir:
         type: string
     steps:
-      # git clone the repos and switch to a branch which matches the 
+      # git clone the repos and switch to a branch which matches the
       # name of the branch on the Client repo. If no such branch exists, just use main
-      - run: 
+      - run:
           name: "Git clone repo << parameters.repo >>"
           command: |
-              git clone << parameters.repo >>
+            git clone << parameters.repo >>
           working_directory: /go/src/github.com/ConsenSys/
-      - run: 
+      - run:
           name: "Git get correct branch for << parameters.repo >>"
           #head=$(git --git-dir=fc-retrieval-gateway/.git rev-parse HEAD)
           #git --git-dir=fc-retrieval-gateway/.git reset --hard "$head"
           command: |
-              BRANCH=$CIRCLE_BRANCH
-              if [ -z "$BRANCH" ]; then
-                echo Using main
-                BRANCH=main
+            BRANCH=$CIRCLE_BRANCH
+            if [ -z "$BRANCH" ]; then
+              echo Using main
+              BRANCH=main
+            else 
+              existed_in_local=$(git branch -r --list origin/"$BRANCH")
+              if [ -z "$existed_in_local" ]; then 
+                echo << parameters.repo >> repo branch is main
               else 
-                existed_in_local=$(git branch -r --list origin/"$BRANCH")
-                if [ -z "$existed_in_local" ]; then 
-                  echo << parameters.repo >> repo branch is main
-                else 
-                  echo << parameters.repo >> branch is "$BRANCH"
-                  git fetch
-                  git checkout "$BRANCH"
-                fi
+                echo << parameters.repo >> branch is "$BRANCH"
+                git fetch
+                git checkout "$BRANCH"
               fi
-              # echo to the screen the git hash
-              git rev-parse HEAD
+            fi
+            # echo to the screen the git hash
+            git rev-parse HEAD
           working_directory: << parameters.workdir >>
 
 jobs:
   # Do a local build first, just to make sure the integration test code builds.
+  checkmainmodules:
+    docker:
+      - image: circleci/golang:1.15
+    working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
+    steps:
+      - checkout
+      - run:
+          name: Check main modules in go.mod
+          command: make check-main-modules
+
   localbuild:
     docker:
       - image: circleci/golang:1.15
@@ -112,13 +122,13 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: true
-      - run: 
+      - run:
           command: cat go.mod
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
-      - run: 
+      - run:
           command: cat go.mod
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-client/
-      - run: 
+      - run:
           name: Make Integration Tests
           command: make clean build tag
       - run:
@@ -133,7 +143,7 @@ jobs:
           name: Make Register
           command: make clean build tag
           working_directory: /go/src/github.com/ConsenSys/fc-retrieval-register/
-      - run: 
+      - run:
           name: Run Itegration Tests
           command: make itestlocal
           no_output_timeout: 30s
@@ -148,18 +158,16 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: true
-      - run: 
+      - run:
           name: Make Integration Tests
           command: make clean build
       - run:
           name: Log in to Docker registry
           command: echo $GITHUB_ACCESS_TOKEN | docker login https://docker.pkg.github.com -u $GITHUB_USER --password-stdin
-      - run: 
+      - run:
           name: Run Itegration Tests
           command: make itestdocker
           no_output_timeout: 30s
-
-
 
   # check parameter passing
   checkparam:
@@ -169,18 +177,20 @@ jobs:
       REPOBRANCH: << pipeline.parameters.repox-branch >>
     working_directory: /go/src/github.com/ConsenSys/fc-retrieval-itest/
     steps:
-      - run: 
+      - run:
           name: "Check parameters"
           command: |
             echo "pipeline.parameters.repox-branch: ${REPOBRANCH}"
             echo Circle Branch: $CIRCLE_BRANCH
 
-
 workflows:
   version: 2
   test_and_release:
     jobs:
-      - localbuild
+      - checkmainmodules
+      - localbuild:
+          requires:
+            - checkmainmodules
       - itestsource:
           requires:
             - localbuild

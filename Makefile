@@ -92,6 +92,12 @@ clean:
 	docker rm -f ${IMAGE}:${VERSION} 2> /dev/null || true
 	docker rmi -f ${IMAGE}:${VERSION} || true
 
+check-modules:
+	./scripts/check-modules/check-modules
+
+check-main-modules:
+	./scripts/check-main-modules/check-main-modules
+
 # Alays assume these targets are out of date.
 .PHONY: clean itest itest-dev utest build release push detectmisconfig
 

@@ -58,6 +58,9 @@ services:
   itest:
     image: ${ITEST_IMAGE:-consensys/fc-retrieval-itest:dev}
     container_name: itest
+    volumes:
+      - ../fc-retrieval-gateway-admin:/go/src/github.com/ConsenSys/fc-retrieval-gateway-admin
+      - ../fc-retrieval-provider-admin:/go/src/github.com/ConsenSys/fc-retrieval-provider-admin
     networks:
       - shared
     depends_on:

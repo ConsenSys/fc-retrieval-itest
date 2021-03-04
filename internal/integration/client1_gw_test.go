@@ -19,6 +19,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/nodeid"
 	"github.com/stretchr/testify/assert"
 
@@ -34,17 +35,24 @@ func TestOneGateway(t *testing.T) {
 		panic(err)
 	}
 
+	gatewayRootPrivateKey, err := fcrgatewayadmin.CreateKey()
+	if err != nil {
+		panic(err)
+	}
+
 	// TODO fix this hard coded domain name
-	err = gwAdmin.InitializeGateway("gateway", gatewayRetrievalPrivateKey)
+	err = gwAdmin.InitializeGatewayDefaultPorts("gateway", "AU", gatewayRootPrivateKey, gatewayRetrievalPrivateKey)
 	if err != nil {
 		panic(err)
 	}
 
-	gwID, err := nodeid.NewNodeIDFromPublicKey(gatewayRetrievalPrivateKey)
+
+	gwID, err := nodeid.NewNodeIDFromPublicKey(gatewayRootPrivateKey)
 	if err != nil {
 		panic(err)
 	}
 
+	logging.Info("Adding to client config gateway: %s", gwID.ToString())
 	client := InitClient()
 	newGatwaysToBeAdded := make([]*nodeid.NodeID, 0)
 	newGatwaysToBeAdded = append(newGatwaysToBeAdded, gwID)
@@ -57,9 +65,17 @@ func TestOneGateway(t *testing.T) {
 	time.Sleep(500 * time.Millisecond)
 
 	client.ConnectedGateways()
-	// TODO UNCOMMENT WHEN GATEWAY REGISTRATION IS WORKING
-	//	gateways := client.ConnectedGateways()
-	//	assert.Equal(t, 1, len(gateways), "Unexpected number of gateways returned")
+	gateways := client.ConnectedGateways()
+
+	// TODO this should be just returning one.
+	assert.GreaterOrEqual(t, 1, len(gateways), "Unexpected number of gateways returned")
+	for i, gw := range gateways {
+		logging.Info("Gateway %d: %s", i, gw)
+	}
+
+
+
+
 	CloseClient(client)
 	CloseGatewayAdmin(gwAdmin)
 }
