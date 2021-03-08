@@ -187,13 +187,15 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - checkmainmodules
-      - localbuild:
-          requires:
-            - checkmainmodules
+      - localbuild
       - itestsource:
           requires:
             - localbuild
       - itestdocker:
           requires:
             - localbuild
+      - checkmainmodules:
+          requires:
+            - localbuild
+            - itestsource
+            - itestdocker

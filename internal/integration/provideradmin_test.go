@@ -66,6 +66,14 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	// Init client
 	client := fcrprovideradmin.InitFilecoinRetrievalProviderAdminClient(*conf)
 
+	providerRootKey, err := fcrcrypto.GenerateRetrievalV1KeyPair()
+	if err != nil {
+		panic(err)
+	}
+	providerRootSigningKey, err := providerRootKey.EncodePublicKey()
+	if err != nil {
+		panic(err)
+	}
 	// Generate private key for provider
 	providerPrivKey, err := fcrcrypto.GenerateRetrievalV1KeyPair()
 	if err != nil {
@@ -83,7 +91,7 @@ func TestInitProviderAdminNoRetrievalKey(t *testing.T) {
 	providerRegister := &register.ProviderRegister{
 		NodeID:             providerID.ToString(),
 		Address:            providerConfig.GetString("PROVIDER_ADDRESS"),
-		RootSigningKey:     providerConfig.GetString("PROVIDER_ROOT_SIGNING_KEY"),
+		RootSigningKey:     providerRootSigningKey,
 		SigningKey:         providerSigningKey,
 		RegionCode:         providerConfig.GetString("PROVIDER_REGION_CODE"),
 		NetworkInfoGateway: providerConfig.GetString("NETWORK_INFO_GATEWAY"),

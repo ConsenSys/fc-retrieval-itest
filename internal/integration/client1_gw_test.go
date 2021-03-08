@@ -16,46 +16,76 @@ package integration
  */
 
 import (
+	"log"
 	"testing"
 	"time"
 
+	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/nodeid"
+	"github.com/ConsenSys/fc-retrieval-register/pkg/register"
+	"github.com/ConsenSys/fc-retrieval-itest/config"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
 )
 
 // Tests in this file check the ability to do node discovery.
+var gatewayConfig = config.NewConfig(".env.gateway")
 
 func TestOneGateway(t *testing.T) {
-	gwAdmin := InitGatewayAdmin()
+	blockchainPrivateKey, err := fcrcrypto.GenerateBlockchainKeyPair()
+	if err != nil {
+		log.Panic(err.Error())
+	}
+
+	confBuilder := fcrgatewayadmin.CreateSettings()
+	confBuilder.SetEstablishmentTTL(101)
+	confBuilder.SetBlockchainPrivateKey(blockchainPrivateKey)
+	confBuilder.SetRegisterURL("http://register:9020")
+	conf := confBuilder.Build()
+	gwAdmin := fcrgatewayadmin.NewFilecoinRetrievalGatewayAdminClient(*conf)
+
+	gatewayRootKey, err := fcrgatewayadmin.CreateKey()
+	if err != nil {
+		panic(err)
+	}
+	gatewayRootSigningKey, err := gatewayRootKey.EncodePublicKey()
+	if err != nil {
+		panic(err)
+	}
 	gatewayRetrievalPrivateKey, err := fcrgatewayadmin.CreateKey()
 	if err != nil {
 		panic(err)
 	}
-
-	gatewayRootPrivateKey, err := fcrgatewayadmin.CreateKey()
+	gatewayRetrievalSigningKey, err := gatewayRetrievalPrivateKey.EncodePublicKey()
 	if err != nil {
 		panic(err)
 	}
 
-	// TODO fix this hard coded domain name
-	err = gwAdmin.InitializeGatewayDefaultPorts("gateway", "AU", gatewayRootPrivateKey, gatewayRetrievalPrivateKey)
+	gatewayID, err := nodeid.NewRandomNodeID()
+
+	gatewayRegister := &register.GatewayRegister{
+		NodeID:              gatewayID.ToString(),
+		Address:             gatewayConfig.GetString("GATEWAY_ADDRESS"),
+		RootSigningKey:      gatewayRootSigningKey,
+		SigningKey:          gatewayRetrievalSigningKey,
+		RegionCode:          gatewayConfig.GetString("GATEWAY_REGION_CODE"),
+		NetworkInfoGateway:  gatewayConfig.GetString("NETWORK_INFO_GATEWAY"),
+		NetworkInfoProvider: gatewayConfig.GetString("NETWORK_INFO_PROVIDER"),
+		NetworkInfoClient:   gatewayConfig.GetString("NETWORK_INFO_CLIENT"),
+		NetworkInfoAdmin:    gatewayConfig.GetString("NETWORK_INFO_ADMIN"),
+	}
+
+	err = gwAdmin.InitializeGateway(gatewayRegister, gatewayRetrievalPrivateKey, fcrcrypto.DecodeKeyVersion(1))
 	if err != nil {
 		panic(err)
 	}
 
-
-	gwID, err := nodeid.NewNodeIDFromPublicKey(gatewayRootPrivateKey)
-	if err != nil {
-		panic(err)
-	}
-
-	logging.Info("Adding to client config gateway: %s", gwID.ToString())
+	logging.Info("Adding to client config gateway: %s", gatewayID.ToString())
 	client := InitClient()
 	newGatwaysToBeAdded := make([]*nodeid.NodeID, 0)
-	newGatwaysToBeAdded = append(newGatwaysToBeAdded, gwID)
+	newGatwaysToBeAdded = append(newGatwaysToBeAdded, gatewayID)
 	numAdded := client.AddGateways(newGatwaysToBeAdded)
 	assert.Equal(t, 1, numAdded)
 	gws := client.GetGateways()
@@ -72,9 +102,6 @@ func TestOneGateway(t *testing.T) {
 	for i, gw := range gateways {
 		logging.Info("Gateway %d: %s", i, gw)
 	}
-
-
-
 
 	CloseClient(client)
 	CloseGatewayAdmin(gwAdmin)

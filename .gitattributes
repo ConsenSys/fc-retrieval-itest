@@ -10,7 +10,6 @@
 *.md text
 *.sh text
 *.yml text
-*.mod text
 *.sum text
 *.dev text
 

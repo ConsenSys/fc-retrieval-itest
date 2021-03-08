@@ -20,8 +20,6 @@ import (
 	"github.com/ConsenSys/fc-retrieval-common/pkg/fcrcrypto"
 	"github.com/ConsenSys/fc-retrieval-common/pkg/logging"
 	"github.com/ConsenSys/fc-retrieval-gateway-admin/pkg/fcrgatewayadmin"
-	"github.com/ConsenSys/fc-retrieval-provider/pkg/provider"
-
 	"github.com/ConsenSys/fc-retrieval-itest/config"
 )
 
@@ -55,20 +53,6 @@ func InitClient() *fcrclient.FilecoinRetrievalClient {
 // CloseClient shuts down a Filecoin Retrieval Client
 func CloseClient(client *fcrclient.FilecoinRetrievalClient) {
 	client.Shutdown()
-}
-
-// InitProvider initialises a Filecoin Retrieval Provider
-func InitProvider() *provider.Provider {
-	conf := config.NewConfig(".env.provider")
-	logging.Init(conf)
-
-	p := provider.GetSingleInstance(conf)
-	return p
-}
-
-// CloseProvider shuts down a Filecoin Retrieval Provider
-func CloseProvider(provider *provider.Provider) {
-	// provider.Shutdown()
 }
 
 // InitGatewayAdmin creates a gateway admin
