@@ -72,6 +72,15 @@ itestdocker:
 		echo *********************************************; \
 		docker-compose run itest go test -v $$file; \
 		echo *********************************************; \
+		echo REDIS LOGS *********************************************; \
+		docker container logs redis; \
+		echo REGISTER LOGS *********************************************; \
+		docker container logs register; \
+		echo GATEWAY LOGS *********************************************; \
+		docker container logs gateway; \
+		echo PROVIDER LOGS *********************************************; \
+		docker container logs provider; \
+		echo *********************************************; \
 		docker-compose down; \
 	done
 
